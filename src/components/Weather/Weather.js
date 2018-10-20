@@ -1,7 +1,7 @@
 import React from "react";
 
 function Weather(props) {
-  if (props.currentWeather) {
+  if (props.currentWeather && !props.error) {
     const city = props.currentWeather.name;
     const country = props.currentWeather.sys.country;
     const temperature = props.currentWeather.main.temp;
@@ -29,7 +29,7 @@ function Weather(props) {
       </div>
     );
   } else {
-    return <h1>Wybierz lokację, dla której chcesz zobaczyć pogodę.</h1>;
+    return <h1>{props.error}</h1>;
   }
 }
 

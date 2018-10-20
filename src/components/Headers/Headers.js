@@ -1,14 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 
-class Headers extends Component {
-  render() {
-    return (
-      <div>
-        <h1>Weather App</h1>
-        <p>Check weather conditions at your location</p>
-      </div>
-    );
-  }
+function Headers() {
+  return (
+    <div>
+      <h1>Pogodynka</h1>
+      <p>Sprawdź aktualną pogodę w wybranym przez siebie mieście.</p>
+    </div>
+  );
 }
 
 export default Headers;

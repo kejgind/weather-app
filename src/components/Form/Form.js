@@ -8,16 +8,16 @@ class Form extends Component {
           type="text"
           name="city"
           className="input"
-          placeholder="Your City..."
+          placeholder="Miasto..."
         />
         <input
           type="text"
           name="country"
           className="input"
-          placeholder="Your Country..."
+          placeholder="Kraj..."
         />
         <button type="submit" className="button">
-          Check Wather
+          Sprawdź pogodę
         </button>
       </form>
     );
