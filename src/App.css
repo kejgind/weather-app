@@ -1,0 +1,32 @@
+.App {
+  /* padding: 2rem; */
+  /* height: 100vh; */
+  /* background-color: #e1e1eb; */
+}
+@media screen and (min-width: 576px) {
+  .App {
+    width: 560px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .App {
+    width: 740px;
+    padding: 2rem 0;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .App {
+    width: 992px;
+    display: flex;
+    box-shadow: 2px 2px 7px 0 rgba(35, 32, 32, 0.3);
+  }
+  .wrap {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .App {
+    width: 1170px;
+  }
+}

@@ -9,8 +9,13 @@ import "./App.css";
 
 class App extends Component {
   state = {
-    currentWeather: null,
-    error: "Określ lokację (miasto i kraj), dla której chcesz zobaczyć pogodę.",
+    city: undefined,
+    country: undefined,
+    description: undefined,
+    temperature: undefined,
+    pressure: undefined,
+    wind: undefined,
+    error: undefined,
   };
 
   getWeather = async e => {
@@ -22,12 +27,35 @@ class App extends Component {
         `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=metric&lang=pl`
       );
       const weatherData = await api_call.json();
-      if (weatherData.code === 200) {
-        this.setState({ currentWeather: weatherData, error: "" });
-      } else return;
+      if (weatherData.cod === 200) {
+        this.setState({
+          city: weatherData.name,
+          country: weatherData.sys.country,
+          description: weatherData.weather[0].description,
+          temperature: weatherData.main.temp,
+          pressure: weatherData.main.pressure,
+          wind: weatherData.wind.speed,
+          error: undefined,
+        });
+      } else {
+        this.setState({
+          city: undefined,
+          country: undefined,
+          description: undefined,
+          temperature: undefined,
+          pressure: undefined,
+          wind: undefined,
+          error: "Podanego miasto nie znaleziono.",
+        });
+      }
     } else {
       this.setState({
-        currentWeather: null,
+        city: undefined,
+        country: undefined,
+        description: undefined,
+        temperature: undefined,
+        pressure: undefined,
+        wind: undefined,
         error:
           "Określ lokację (miasto i kraj), dla której chcesz zobaczyć pogodę.",
       });
@@ -37,12 +65,21 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Headers />
-        <Form getWeather={this.getWeather} />
-        <Weather
-          currentWeather={this.state.currentWeather}
-          error={this.state.error}
-        />
+        <div className="wrap">
+          <Headers />
+        </div>
+        <div className="wrap">
+          <Form getWeather={this.getWeather} />
+          <Weather
+            city={this.state.city}
+            country={this.state.country}
+            description={this.state.description}
+            temperature={this.state.temperature}
+            pressure={this.state.pressure}
+            wind={this.state.wind}
+            error={this.state.error}
+          />
+        </div>
       </div>
     );
   }

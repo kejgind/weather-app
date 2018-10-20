@@ -1,36 +1,39 @@
 import React from "react";
+import "./Weather.css";
 
 function Weather(props) {
-  if (props.currentWeather && !props.error) {
-    const city = props.currentWeather.name;
-    const country = props.currentWeather.sys.country;
-    const temperature = props.currentWeather.main.temp;
-    const pressure = props.currentWeather.main.pressure;
-    const weather = props.currentWeather.weather[0].description;
-    const wind = props.currentWeather.wind.speed;
-    return (
-      <div>
-        <h1>
-          Lokalizacja: {city}, {country}
-        </h1>
-        <p>Pogoda: {weather}</p>
-        <p>
-          Temperatura: {temperature}
+  return (
+    <div className="Weather">
+      {props.city &&
+        props.country && (
+          <h2 className="Weather__title">
+            <strong>Lokalizacja:</strong> {props.city}, {props.country}
+          </h2>
+        )}
+      {props.description && (
+        <p className="Weather__paragraph"><strong>Pogoda:</strong> {props.description}</p>
+      )}
+      {props.temperature && (
+        <p className="Weather__paragraph">
+          <strong>Temperatura:</strong> {props.temperature}
           &deg;C
         </p>
-        <p>
-          Ciśnienie: {pressure}
+      )}
+      {props.pressure && (
+        <p className="Weather__paragraph">
+          <strong>Ciśnienie:</strong> {props.pressure}
           hPa
         </p>
-        <p>
-          Wiatr: {wind}
+      )}
+      {props.wind && (
+        <p className="Weather__paragraph">
+          <strong>Wiatr:</strong> {props.wind}
           m&#47;s
         </p>
-      </div>
-    );
-  } else {
-    return <h1>{props.error}</h1>;
-  }
+      )}
+      {props.error && <h2 className="Weather__title">{props.error}</h2>}
+    </div>
+  );
 }
 
 export default Weather;

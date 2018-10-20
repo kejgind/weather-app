@@ -1,0 +1,22 @@
+.Weather {
+  padding: 1rem 2rem 1rem;
+}
+
+.Weather__title {
+  font-size: 1.22rem;
+}
+
+.Weather__paragraph {
+  margin-top: 0.4rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .Weather__title {
+    font-size: 1.5rem;
+  }
+  
+  .Weather__paragraph {
+    font-size: 1.15rem;
+    margin-top: 0.7rem;
+  }
+}

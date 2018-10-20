@@ -1,0 +1,75 @@
+.Form {
+  width: 100%;
+  padding: 1.4rem 2rem 1rem;
+}
+
+.Form__input,
+.Form__button {
+  display: block;
+  width: 100%;
+  outline: none;
+}
+
+.Form__input {
+  height: 2rem;
+  padding: 0.2rem;
+  border: none;
+  background-color: transparent;
+  border-bottom: 2px solid #3e78b2;
+  margin-bottom: 1rem;
+  transition: 150ms border-bottom-color;
+  color: #232020;
+  font-size: 1.1rem;
+}
+.Form__input:active,
+.Form__input:focus {
+  /* border-bottom-color: hsl(210, 48%, 37%); */
+  border-bottom-color: #004ba8;
+}
+.Form__input::-webkit-input-placeholder {
+  color: #3e78b2;
+  opacity: 0.6;
+}
+.Form__input::-moz-placeholder {
+  color: #3e78b2;
+  opacity: 0.6;
+}
+.Form__input:-ms-input-placeholder {
+  color: #3e78b2;
+  opacity: 0.6;
+}
+.Form__input:-moz-placeholder {
+  color: #3e78b2;
+  opacity: 0.6;
+}
+
+.Form__button {
+  padding: 0.6rem 1.5rem;
+  border: none;
+  background-color: #3e78b2;
+  color: #e1e1eb;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: 150ms background-color;
+  box-shadow: 1px 1px 5px 0 rgba(35, 32, 32, 0.7);
+  cursor: pointer;
+}
+
+.Form__button:hover {
+  /* background-color: hsl(210, 48%, 37%); */
+  background-color: #004ba8;
+}
+
+@media screen and (min-width: 1024px) {
+  .Form {
+    padding: 4em 2rem;
+  }
+  .Form__input {
+    margin-bottom: 2rem;
+    font-size: 1.3rem;
+  }
+  .Form__button {
+    padding: 0.8rem 1.6rem;
+    font-size: 1.1rem;
+  }
+}
