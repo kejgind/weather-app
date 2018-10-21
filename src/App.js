@@ -21,10 +21,12 @@ class App extends Component {
   getWeather = async e => {
     e.preventDefault();
     const city = e.target.elements.city.value;
+    const cityTrim = city.trim().replace(/\s{2,}/, ' ');
     const country = e.target.elements.country.value;
+    const countryTrim = country.trim().replace(/\s{2,}/, ' ');
     if (city && country) {
       const api_call = await fetch(
-        `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=metric&lang=pl`
+        `http://api.openweathermap.org/data/2.5/weather?q=${cityTrim},${countryTrim}&appid=${API_KEY}&units=metric&lang=pl`
       );
       const weatherData = await api_call.json();
       if (weatherData.cod === 200) {
